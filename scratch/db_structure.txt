@@ -1,0 +1,147 @@
+
+--- Table: academic_calendar ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: event_name - Type: varchar(255) - Key:  - Default: 
+  Column: event_date - Type: varchar(100) - Key:  - Default: 
+  Column: status - Type: varchar(50) - Key:  - Default: 
+  Column: category - Type: varchar(50) - Key:  - Default: 
+
+--- Table: announcements ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: title - Type: varchar(200) - Key:  - Default: 
+  Column: content - Type: text - Key:  - Default: 
+  Column: created_by - Type: int(11) - Key: MUL - Default: 
+  Column: created_at - Type: timestamp - Key:  - Default: current_timestamp()
+  Column: image_path - Type: varchar(255) - Key:  - Default: 
+  Column: image2_path - Type: varchar(255) - Key:  - Default: 
+  Column: image3_path - Type: varchar(255) - Key:  - Default: 
+  Column: video_path - Type: varchar(255) - Key:  - Default: 
+
+--- Table: complaints ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: reference_code - Type: varchar(50) - Key: UNI - Default: 
+  Column: sender_name - Type: varchar(100) - Key:  - Default: 
+  Column: sender_phone - Type: varchar(50) - Key:  - Default: 
+  Column: sender_email - Type: varchar(100) - Key:  - Default: 
+  Column: sender_type - Type: varchar(50) - Key:  - Default: 
+  Column: category - Type: varchar(50) - Key:  - Default: 
+  Column: subject - Type: varchar(255) - Key:  - Default: 
+  Column: message - Type: text - Key:  - Default: 
+  Column: status - Type: varchar(50) - Key:  - Default: قيد المراجعة
+  Column: admin_response - Type: text - Key:  - Default: 
+  Column: created_at - Type: timestamp - Key:  - Default: current_timestamp()
+
+--- Table: events ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: title - Type: varchar(255) - Key:  - Default: 
+  Column: description - Type: text - Key:  - Default: 
+  Column: event_date - Type: date - Key:  - Default: 
+  Column: location - Type: varchar(150) - Key:  - Default: 
+  Column: image_path - Type: varchar(255) - Key:  - Default: 
+  Column: category - Type: varchar(100) - Key:  - Default: 
+  Column: created_at - Type: timestamp - Key:  - Default: current_timestamp()
+  Column: image2_path - Type: varchar(255) - Key:  - Default: 
+  Column: image3_path - Type: varchar(255) - Key:  - Default: 
+  Column: video_path - Type: varchar(255) - Key:  - Default: 
+
+--- Table: grades ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: student_id - Type: int(11) - Key: MUL - Default: 
+  Column: subject_id - Type: int(11) - Key: MUL - Default: 
+  Column: final_grade - Type: decimal(5,2) - Key:  - Default: 
+  Column: year_work - Type: decimal(5,2) - Key:  - Default: 
+  Column: attendance_grade - Type: decimal(5,2) - Key:  - Default: 
+  Column: participation_grade - Type: decimal(5,2) - Key:  - Default: 
+  Column: total_grade - Type: decimal(5,2) - Key:  - Default: 
+  Column: grade_letter - Type: varchar(2) - Key:  - Default: 
+
+--- Table: lectures ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: subject_id - Type: int(11) - Key: MUL - Default: 
+  Column: title - Type: varchar(200) - Key:  - Default: 
+  Column: file_path - Type: varchar(500) - Key:  - Default: 
+  Column: uploaded_by - Type: int(11) - Key: MUL - Default: 
+  Column: upload_date - Type: timestamp - Key:  - Default: current_timestamp()
+
+--- Table: notifications ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: user_id - Type: int(11) - Key: MUL - Default: 
+  Column: message - Type: text - Key:  - Default: 
+  Column: is_read - Type: tinyint(1) - Key:  - Default: 0
+  Column: created_at - Type: timestamp - Key:  - Default: current_timestamp()
+
+--- Table: payments ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: user_id - Type: int(11) - Key: MUL - Default: 
+  Column: amount - Type: decimal(10,2) - Key:  - Default: 0.00
+  Column: payment_date - Type: timestamp - Key:  - Default: current_timestamp()
+  Column: receipt_file - Type: varchar(500) - Key:  - Default: 
+  Column: transaction_number - Type: varchar(100) - Key:  - Default: 
+  Column: uploaded_by - Type: enum('student','staff') - Key:  - Default: student
+  Column: status - Type: enum('pending','approved','rejected') - Key:  - Default: pending
+  Column: notes - Type: text - Key:  - Default: 
+
+--- Table: schedule ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: subject_id - Type: int(11) - Key: MUL - Default: 
+  Column: day_of_week - Type: varchar(20) - Key:  - Default: 
+  Column: start_time - Type: time - Key:  - Default: 
+  Column: end_time - Type: time - Key:  - Default: 
+  Column: room - Type: varchar(50) - Key:  - Default: 
+
+--- Table: site_pages ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: page_key - Type: varchar(50) - Key: UNI - Default: 
+  Column: page_title - Type: varchar(100) - Key:  - Default: 
+  Column: page_content - Type: longtext - Key:  - Default: 
+  Column: updated_at - Type: timestamp - Key:  - Default: current_timestamp()
+
+--- Table: site_settings ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: setting_key - Type: varchar(50) - Key: UNI - Default: 
+  Column: setting_value - Type: longtext - Key:  - Default: 
+
+--- Table: subjects ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: subject_name - Type: varchar(100) - Key:  - Default: 
+  Column: subject_code - Type: varchar(20) - Key: UNI - Default: 
+  Column: department - Type: varchar(100) - Key:  - Default: 
+  Column: level - Type: varchar(50) - Key:  - Default: 
+
+--- Table: users ---
+  Column: id - Type: int(11) - Key: PRI - Default: 
+  Column: full_name - Type: varchar(100) - Key:  - Default: 
+  Column: english_name - Type: varchar(150) - Key:  - Default: 
+  Column: email - Type: varchar(100) - Key: UNI - Default: 
+  Column: password - Type: varchar(255) - Key:  - Default: 
+  Column: role - Type: enum('student','staff') - Key:  - Default: student
+  Column: permission_level - Type: int(11) - Key:  - Default: 1
+  Column: student_id - Type: varchar(20) - Key: UNI - Default: 
+  Column: national_id - Type: varchar(20) - Key: UNI - Default: 
+  Column: department - Type: varchar(100) - Key:  - Default: 
+  Column: level - Type: varchar(50) - Key:  - Default: 
+  Column: image - Type: varchar(500) - Key:  - Default: 
+  Column: payment_status - Type: enum('pending','unpaid','paid') - Key:  - Default: pending
+  Column: created_at - Type: timestamp - Key:  - Default: current_timestamp()
+  Column: gender - Type: varchar(20) - Key:  - Default: 
+  Column: birth_date - Type: date - Key:  - Default: 
+  Column: birth_place - Type: varchar(150) - Key:  - Default: 
+  Column: nationality - Type: varchar(100) - Key:  - Default: 
+  Column: address - Type: varchar(255) - Key:  - Default: 
+  Column: qualification_type - Type: varchar(100) - Key:  - Default: 
+  Column: total_marks - Type: varchar(50) - Key:  - Default: 
+  Column: seat_number - Type: varchar(50) - Key:  - Default: 
+  Column: high_school_percentage - Type: decimal(5,2) - Key:  - Default: 
+  Column: graduation_year - Type: varchar(50) - Key:  - Default: 
+  Column: school_name - Type: varchar(200) - Key:  - Default: 
+  Column: school_cert_image - Type: varchar(255) - Key:  - Default: 
+  Column: identity_image - Type: varchar(255) - Key:  - Default: 
+  Column: identity_type - Type: varchar(100) - Key:  - Default: 
+  Column: identity_number - Type: varchar(100) - Key:  - Default: 
+  Column: identity_place - Type: varchar(150) - Key:  - Default: 
+  Column: identity_issue_date - Type: date - Key:  - Default: 
+  Column: branch - Type: varchar(150) - Key:  - Default: 
+  Column: college - Type: varchar(150) - Key:  - Default: 
+  Column: parent_phone - Type: varchar(50) - Key:  - Default: 
+  Column: whatsapp - Type: varchar(50) - Key:  - Default: 
+  Column: semester - Type: varchar(50) - Key:  - Default: الترم الأول

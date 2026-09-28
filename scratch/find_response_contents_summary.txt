@@ -1,0 +1,54 @@
+Searching web_response.txt:
+  NOT FOUND: 'آخر الأخبار'
+  NOT FOUND: 'التخصصات المتاحة'
+  NOT FOUND: 'إعلانات هامة وعاجلة'
+  NOT FOUND: 'لوحة التحكم'
+  NOT FOUND: 'تسجيل الدخول'
+  NOT FOUND: 'تنويه رسمي'
+
+No standard PHP errors/warnings found.
+
+Body starts with:
+<body>
+
+
+
+
+
+<!-- ===== JavaScript ===== -->
+
+<script>
+
+// السلايدر (الترتيب: مؤسسة الكلية 7 ثواني -> الرسالة 7 ثواني -> الرؤية 7 ثواني)
+
+const slidesData = [
+
+    { image:"images/slider_campus.jpg?v=3", title:"مؤسسة كلية سماء المتميزين", text:"كلية سماء المتميزين هي مؤسسة تعليمية رائدة تسعى لبناء جيل مبدع ومتميز وتقديم برامج أكاديمية حديثة." },
+
+    { image:"images/slider_mission.jpg?v=3", title:"رسالتنا", text:"نلتزم بتقديم تعليم نوعي في بيئة محفزة للإبداع وتنمية المهارات العملية والمهنية." },
+
+    { image:"images/slider_vision.jpg?v=3", title:"رؤيتنا", text:"أن تكون كلية سماء المتميزين نموذجاً تعليمياً رائداً في التميز الأكاديمي وخدمة المجتمع." }
+
+];
+
+let slideIndex = 0;
+
+let sliderInterval = setInterval(nextSlide, 7000);
+
+
+
+function resetSliderTimer(){
+
+    clearInterval(sliderInterval);
+
+    sliderInterval = setInterval(nextSlide, 7000);
+
+}
+
+
+
+function showSlide(i){
+
+    document.getElementById("sliderImage").src = slidesData[i].image;
+
+    document.getElementById("title").innerTex

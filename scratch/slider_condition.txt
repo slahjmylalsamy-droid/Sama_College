@@ -1,0 +1,42 @@
+دير)
+// ============================================================
+elseif ($page == 'manage_permissions' && $is_admin):
+    include 'pages/admin_manage_permissions.php';
+
+// ============================================================
+// صفحة غير مصرح بها
+// ============================================================
+else:
+?>
+    <div style="background:white;padding:40px;border-radius:12px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+        <div style="font-size:60px;color:#ffc107;">❓</div>
+        <h2 style="color:#0f3460;">الصفحة غير متاحة</h2>
+        <p style="color:#666;">ليس لديك صلاحية لعرض هذه الصفحة.</p>
+        <a href="?p=home" style="display:inline-block;background:#0f3460;color:white;padding:10px 25px;border-radius:8px;text-decoration:none;margin-top:15px;">العودة للرئيسية</a>
+    </div>
+<?php endif; ?>
+</div>
+
+<?php endif; ?>
+
+<!-- ===== JavaScript ===== -->
+<script>
+// السلايدر (الترتيب: مؤسسة الكلية 7 ثواني -> الرسالة 7 ثواني -> الرؤية 7 ثواني)
+const slidesData = [
+    { image:"<?php echo get_setting('slide1_image', 'images/slider_campus.jpg?v=3'); ?>", title:"<?php echo addslashes(get_setting('slide1_title', 'مؤسسة كلية سماء المتميزين')); ?>", text:"<?php echo addslashes(get_setting('slide1_text', 'كلية سماء المتميزين هي مؤسسة تعليمية رائدة تسعى لبناء جيل مبدع ومتميز وتقديم برامج أكاديمية حديثة.')); ?>" },
+    { image:"<?php echo get_setting('slide2_image', 'images/slider_mission.jpg?v=3'); ?>", title:"<?php echo addslashes(get_setting('slide2_title', 'رسالتنا')); ?>", text:"<?php echo addslashes(get_setting('slide2_text', 'نلتزم بتقديم تعليم نوعي في بيئة محفزة للإبداع وتنمية المهارات العملية والمهنية.')); ?>" },
+    { image:"<?php echo get_setting('slide3_image', 'images/slider_vision.jpg?v=3'); ?>", title:"<?php echo addslashes(get_setting('slide3_title', 'رؤيتنا')); ?>", text:"<?php echo addslashes(get_setting('slide3_text', 'أن تكون كلية سماء المتميزين نموذجاً تعليمياً رائداً في التميز الأكاديمي وخدمة المجتمع.')); ?>" }
+];
+let slideIndex = 0;
+let sliderInterval = setInterval(nextSlide, 7000);
+
+function resetSliderTimer(){
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 7000);
+}
+
+function showSlide(i){
+    document.getElementById("sliderImage").src = slidesData[i].image;
+    document.getElementById("title").innerText = slidesData[i].title;
+    document.getElementById("text").innerText = slidesData[i].text;
+    document.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));

@@ -1,0 +1,32 @@
+Tables:
+  academic_calendar
+  announcements
+  complaints
+  events
+  grades
+  lectures
+  notifications
+  payments
+  schedule
+  site_pages
+  site_settings
+  subjects
+  users
+
+site_pages keys:
+
+Announcements count: 2
+Announcements columns:
+  id (int(11))
+  title (varchar(200))
+  content (text)
+  created_by (int(11))
+  created_at (timestamp)
+
+Latest 5 announcements:
+  ID: 1 | Title: 📢 بدء التسجيل للفصل الدراسي الجديد | Created At: 2026-06-25 17:22:28
+  Content: يسر عمادة الكلية الإعلان عن بدء التسجيل للفصل الدراسي الأول للعام الجامعي 2026/2027 اعتباراً من 1 سبتمبر 2026.
+
+  ID: 2 | Title: 🎓 تخفيضات للطلاب المتفوقين | Created At: 2026-06-25 17:22:28
+  Content: تعلن الكلية عن تخفيض 30% من الرسوم الدراسية للطلاب الحاصلين على معدل 90% فأعلى.
+

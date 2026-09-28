@@ -1,0 +1,35 @@
+= $_SESSION['permission'] ?? 0;
+$payment_status = $_SESSION['payment_status'] ?? 'unpaid';
+$is_admin = ($permission >= 3);
+$is_staff = ($permission >= 2);
+$is_student = ($permission >= 1 && $permission < 2);
+$is_paid = ($payment_status === 'paid');
+
+$public_pages = [
+    'home', 'login', 'enroll', 'announcements_public', 'schedule', 'portal', 'grades', 'complaints', 'events',
+    'about', 'president', 'vision', 'goals', 'strategy',
+    'news', 'students', 'research', 'library', 'jobs', 'contact',
+    // Majors
+    'major_it', 'major_graphics', 'major_arch', 'major_accounting', 'major_business', 'major_pharmacy', 'major_assistant', 'major_dentist', 'major_midwife',
+    // Admin
+    'quality', 'planning', 'students_affairs', 'finance', 'it',
+    // Centers
+    'medical_institute', 'community
+================================================================================
+er-text">شاركنا آراءك ومقترحاتك</p></a>
+</div>
+</section>
+
+<!-- ===== المربعين ===== -->
+<section class="quick-boxes">
+    <a href="?p=events" class="quick"><h3>فعاليات وأنشطة</h3><p>تقيم الكلية العديد من الفعاليات الثقافية والعلمية وورش العمل التي تهدف لتنمية مهارات الطلبة.</p></a>
+    <a href="?p=announcements_public" class="quick"><h3>إعلان هام</h3><p>تعلن إدارة الكلية عن بدء التسجيل للفصل الدراسي الجديد، وعلى الطلاب سرعة استكمال إجراءاتهم.</p></a>
+</section>
+
+<!-- ===== التخصصات ===== -->
+<section class="majors">
+<h2>التخصصات المتاحة</h2>
+<div class="major-grid">
+    <a href="?p=major_it" class="major-box"><img src="images/hero_img1.png"><div><h3>تقنية المعلومات</h3><p>للمزيد من التفاصيل</p></div></a>
+    <a href="?p=major_accounting" class="major-box"><img src="images/hero_img2.png"><
+================================================================================

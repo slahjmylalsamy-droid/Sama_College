@@ -1,0 +1,50 @@
+<!-- ===== قسم إحصائيات الكلية ===== -->
+<section style="background-color: #22316c; color: white; padding: 110px 4% 130px 4%; direction: rtl; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">
+    <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
+        
+        <!-- الجزء العلوي: النص والعناوين -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 100px;">
+            <!-- العناوين (على اليمين) -->
+            <div style="flex: 1; min-width: 300px; text-align: right;">
+                <span style="color: rgba(255, 255, 255, 0.75); font-size: 18px; font-weight: normal; display: block; margin-bottom: 15px; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif; letter-spacing: 0.5px;">إحصائيات الكلية</span>
+                <h2 style="color: white; font-size: 48px; font-weight: 800; margin: 0; line-height: 1.2; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">كلية سماء المتميزين</h2>
+            </div>
+            
+            <!-- الوصف (على اليسار) -->
+            <div style="flex: 1.8; min-width: 350px;">
+                <p style="color: rgba(255, 255, 255, 0.95); font-size: 21px; line-height: 2.2; margin: 0; text-align: justify; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">
+                    كلية سماء المتميزين للعلوم الصحية والتكنولوجيا هي مؤسسة تعليمية رائدة مرخصة رسمياً من الجهات المختصة. بدأت الكلية مسيرتها في تقديم البرامج الطبية والتقنية المتميزة لتأهيل الطلاب وإعدادهم لسوق العمل بأعلى مستويات الجودة والكفاءة الأكاديمية والتدريب العملي في مختلف التخصصات الطبية والصحية والتقنية.
+                </p>
+            </div>
+        </div>
+        
+        <!-- الجزء السفلي: شبكة الإحصائيات (موزعة بمسافات متناسقة ومحاذاة مركزية لكل عنصر) -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-top: 30px;">
+            <!-- بطاقة 1 -->
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; min-width: 180px;">
+                <span style="font-size: 72px; font-weight: 800; color: white; line-height: 1; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">12</span>
+                <div style="width: 160px; border-bottom: 2.5px solid white; margin: 15px 0;"></div>
+                <span style="font-size: 21px; font-weight: 800; color: white; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">برنامج أكاديمي</span>
+            </div>
+            <!-- بطاقة 2 -->
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; min-width: 180px;">
+                <span style="font-size: 72px; font-weight: 800; color: white; line-height: 1; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">2</span>
+                <div style="width: 160px; border-bottom: 2.5px solid white; margin: 15px 0;"></div>
+                <span style="font-size: 21px; font-weight: 800; color: white; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">فرع</span>
+            </div>
+            <!-- بطاقة 3 -->
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; min-width: 180px;">
+                <span style="font-size: 72px; font-weight: 800; color: white; line-height: 1; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">3500</span>
+                <div style="width: 160px; border-bottom: 2.5px solid white; margin: 15px 0;"></div>
+                <span style="font-size: 21px; font-weight: 800; color: white; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">خريج</span>
+            </div>
+            <!-- بطاقة 4 -->
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; min-width: 180px;">
+                <span style="font-size: 72px; font-weight: 800; color: white; line-height: 1; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">5</span>
+                <div style="width: 160px; border-bottom: 2.5px solid white; margin: 15px 0;"></div>
+                <span style="font-size: 21px; font-weight: 800; color: white; font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;">مبنى</span>
+            </div>
+        </div>
+        
+    </div>
+</section>

@@ -1,0 +1,173 @@
+<body>
+
+
+
+
+
+<!-- ===== JavaScript ===== -->
+
+<script>
+
+// السلايدر (الترتيب: مؤسسة الكلية 7 ثواني -> الرسالة 7 ثواني -> الرؤية 7 ثواني)
+
+const slidesData = [
+
+    { image:"images/slider_campus.jpg?v=3", title:"مؤسسة كلية سماء المتميزين", text:"كلية سماء المتميزين هي مؤسسة تعليمية رائدة تسعى لبناء جيل مبدع ومتميز وتقديم برامج أكاديمية حديثة." },
+
+    { image:"images/slider_mission.jpg?v=3", title:"رسالتنا", text:"نلتزم بتقديم تعليم نوعي في بيئة محفزة للإبداع وتنمية المهارات العملية والمهنية." },
+
+    { image:"images/slider_vision.jpg?v=3", title:"رؤيتنا", text:"أن تكون كلية سماء المتميزين نموذجاً تعليمياً رائداً في التميز الأكاديمي وخدمة المجتمع." }
+
+];
+
+let slideIndex = 0;
+
+let sliderInterval = setInterval(nextSlide, 7000);
+
+
+
+function resetSliderTimer(){
+
+    clearInterval(sliderInterval);
+
+    sliderInterval = setInterval(nextSlide, 7000);
+
+}
+
+
+
+function showSlide(i){
+
+    document.getElementById("sliderImage").src = slidesData[i].image;
+
+    document.getElementById("title").innerText = slidesData[i].title;
+
+    document.getElementById("text").innerText = slidesData[i].text;
+
+    document.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
+
+    if(document.querySelectorAll(".dot")[i]) {
+
+        document.querySelectorAll(".dot")[i].classList.add("active");
+
+    }
+
+}
+
+function nextSlide(){ slideIndex = (slideIndex + 1) % slidesData.length; showSlide(slideIndex); resetSliderTimer(); }
+
+function prevSlide(){ slideIndex = (slideIndex - 1 + slidesData.length) % slidesData.length; showSlide(slideIndex); resetSliderTimer(); }
+
+function currentSlide(i){ slideIndex = i; showSlide(i); resetSliderTimer(); }
+
+
+
+// زر الرجوع للأعلى
+
+function scrollToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+
+window.onscroll = function(){ document.getElementById("topBtn").style.display = document.documentElement.scrollTop > 300 ? "block" : "none"; };
+
+
+
+// الأخبار المتحركة
+
+const newsContainer = document.getElementById("newsContainer");
+
+if(newsContainer){
+
+    const newsCards = newsContainer.querySelectorAll(".news-card");
+
+    let newsIndex = 0;
+
+    function scrollNews(direction){
+
+        newsIndex = Math.max(0, Math.min(newsCards.length - 1, newsIndex + direction));
+
+        newsContainer.scrollTo({ left: newsCards[newsIndex].offsetLeft, behavior: 'smooth' });
+
+    }
+
+    document.getElementById("newsPrev")?.addEventListener("click", () => scrollNews(-1));
+
+    document.getElementById("newsNext")?.addEventListener("click", () => scrollNews(1));
+
+    let newsAuto = setInterval(() => { newsIndex = (newsIndex + 1) % newsCards.length; newsContainer.scrollTo({ left: newsCards[newsIndex].offsetLeft, behavior: 'smooth' }); }, 4000);
+
+    newsContainer.addEventListener("mouseenter", () => clearInterval(newsAuto));
+
+    newsContainer.addEventListener("mouseleave", () => { newsAuto = setInterval(() => { newsIndex = (newsIndex + 1) % newsCards.length; newsContainer.scrollTo({ left: newsCards[newsIndex].offsetLeft, behavior: 'smooth' }); }, 4000); });
+
+}
+
+
+
+// ============================================================
+
+// الساعة والتاريخ (بتنسيق: الخميس / 9 يوليو 2026م | 9:21:54 ص)
+
+// ============================================================
+
+function updateClock() {
+
+    const now = new Date();
+
+    const clock = document.getElementById('liveClock');
+
+    const dateEl = document.getElementById('liveDate');
+
+    
+
+    if (clock) {
+
+        let hours = now.getHours();
+
+        let minutes = now.getMinutes();
+
+        let seconds = now.getSeconds();
+
+        let ampm = hours >= 12 ? 'م' : 'ص';
+
+        hours = hours % 12 || 12;
+
+        clock.textContent = hours + ':' + String(minutes).padStart(2,'0') + ':' + String(seconds).padStart(2,'0') + ' ' + ampm;
+
+    }
+
+    
+
+    if (dateEl) {
+
+        // التنسيق المطلوب: الخميس / 9 يوليو 2026م
+
+        const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+
+        const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+
+        const dayName = days[now.getDay()];
+
+        const day = now.getDate();
+
+        const month = months[now.getMonth()];
+
+        const year = now.getFullYear();
+
+        dateEl.textContent = dayName + ' / ' + day + ' ' + month + ' ' + year + 'م';
+
+    }
+
+}
+
+
+
+setInterval(updateClock, 1000);
+
+updateClock();
+
+</script>
+
+
+
+</body>
+
+</html>

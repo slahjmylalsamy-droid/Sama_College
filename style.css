@@ -1,0 +1,98 @@
+/* 
+    Custom CSS Enhancements for Sama College 
+    Integrates smoothly with Tailwind CSS
+*/
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #c5a059; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #006654; 
+}
+
+/* Base styles override */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar active state underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #c5a059;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    opacity: 0; 
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.animation-delay-100 {
+    animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+    animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+    animation-delay: 300ms;
+}
+
+/* Scroll reveal class */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slider transition active dot */
+.slide-dot {
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+.slide-dot.active-dot {
+    width: 2.5rem;
+    background-color: #c5a059;
+    opacity: 1;
+}
+
+/* Card image zoom effect in faculty cards is handled by Tailwind group-hover, 
+but we ensure smooth transition here */
+.faculty-card img, .faculty-card .bg-cover {
+    transition: transform 0.7s ease;
+}

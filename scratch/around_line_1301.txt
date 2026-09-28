@@ -1,0 +1,52 @@
+anslateY(-2px)';" onmouseout="this.style.background='#7d0f3f'; this.style.transform='none';">🏠 العودة للصفحة الرئيسية</a>
+            </div>
+        </div>
+<?php
+    elseif ($page == 'about'):
+        include 'pages/about.php';
+    elseif ($page == 'president'):
+        include 'pages/president.php';
+    elseif ($page == 'vision'):
+        include 'pages/vision.php';
+    elseif ($page == 'goals'):
+        include 'pages/goals.php';
+    elseif ($page == 'strategy'):
+        include 'pages/strategy.php';
+    elseif ($page == 'news'):
+        include 'pages/news.php';
+    elseif ($page == 'students'):
+        include 'pages/students.php';
+    elseif ($page == 'research'):
+        include 'pages/research.php';
+    elseif ($page == 'library'):
+        include 'pages/library.php';
+    elseif ($page == 'jobs'):
+        include 'pages/jobs.php';
+    elseif ($page == 'contact'):
+        include 'pages/contact.php';
+    elseif ($page == 'complaints'):
+        include 'pages/complaints.php';
+    elseif ($page == 'events'):
+        include 'pages/events.php';
+    elseif ($page == 'announcements_public'):
+        include 'pages/announcements_public.php';
+    elseif ($page == 'quality'):
+        include 'pages/quality.php';
+    elseif ($page == 'planning'):
+        include 'pages/planning.php';
+    elseif ($page == 'students_affairs'):
+        include 'pages/students_affairs.php';
+    elseif ($page == 'finance'):
+        include 'pages/finance.php';
+    elseif ($page == 'it'):
+        include 'pages/it.php';
+    elseif (in_array($page, $major_pages)):
+        include 'pages/major.php';
+    elseif (in_array($page, $admin_pages)):
+?>
+<div style="min-height:80vh;background:#f4f6f9;padding:40px 20px;">
+    <div style="max-width:900px;margin:auto;background:white;border-radius:20px;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+        <h1 style="color:#0f3460;border-bottom:3px solid #ffd700;padding-bottom:15px;">🏢 <?php echo $current_title; ?></h1>
+        <p style="line-height:2;font-size:17px;color:#444;margin-top:20px;">تختص هذه الإدارة بالإشراف على سير العملية التعليمية والإدارية وتقديم أفضل الخدمات لطلبة الكلية ومنتسبيها في إطار <?php echo $current_title; ?>.</p>
+        <p style="line-height:2;font-size:17px;color:#444;margin-top:10px;">نسعى جاهدين للتطوير المستمر وتطبيق معايير الجودة والشفافية لتحقيق التميز المؤسسي والأكاديمي.</p>
+        <a href="?p=home" style="display:inline-block;margin-top:20px;background:#0f3460;color:white;padding:10px 25px;border-radiu

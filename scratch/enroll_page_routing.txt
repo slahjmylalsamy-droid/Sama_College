@@ -1,0 +1,27 @@
+لتقنيات وبإشراف نخبة من الخبراء والأكاديميين المتخصصين.</p>
+        <a href="?p=home" style="display:inline-block;margin-top:20px;background:#0f3460;color:white;padding:10px 25px;border-radius:8px;text-decoration:none;">← العودة للرئيسية</a>
+    </div>
+</div>
+<?php
+    elseif ($page == 'schedule'):
+        include 'pages/academic_calendar.php';
+    elseif ($page == 'portal'):
+        include 'pages/portal.php';
+    elseif ($page == 'grades'):
+        include 'pages/public_grades_query.php';
+    elseif ($page == 'enroll'):
+?>
+<div style="min-height:100vh;background:#f4f6f9;padding:40px 20px;font-family:'Cairo', sans-serif;">
+    <!-- مودال النجاح بعد التسجيل (موضوع خارج حاويات الخطوات لضمان ظهوره دائماً) -->
+    <div id="successModal" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px); justify-content: center; align-items: center; direction: rtl; padding: 20px; box-sizing: border-box;">
+        <div style="background-color: white; margin: auto; padding: 40px 30px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); width: 100%; max-width: 650px; text-align: center; font-family: 'Cairo', sans-serif; box-sizing: border-box; border-top: 6px solid #28a745;">
+            <!-- علامة الصح الخضراء -->
+            <div style="width: 70px; height: 70px; border-radius: 50%; border: 3px solid #28a745; background-color: #eef9eef0; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; color: #28a745; font-size: 35px; font-weight: bold;">
+                ✓
+            </div>
+            
+            <!-- عنوان النجاح -->
+            <h2 style="margin: 0 0 15px 0; font-size: 24px; font-weight: bold; color: #111;">نجاح!</h2>
+            
+            <!-- نص الرسالة مع حسابات بنك الكريمي والحساب الجامعي الموضح بالصورة -->
+            <p style="font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 30px; padding

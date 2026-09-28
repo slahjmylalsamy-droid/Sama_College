@@ -1,0 +1,35 @@
+فع صورة الهوية
+        $identity_image = '';
+        if (isset($_FILES['identity_image']) && $_FILES['identity_image']['error'] == 0) {
+            $ext = strtolower(pathinfo($_FILES['identity_image']['name'], PATHINFO_EXTENSION));
+            if (in_array($ext, ['jpg','jpeg','png','pdf'])) {
+                if (!is_dir('uploads/identities')) {
+                    mkdir('uploads/identities', 0777, true);
+                }
+                $new_filename = time() . '_' . rand(1000, 9999) . '.' . $ext;
+                $target = 'uploads/identities/' . $new_filename;
+                if (move_uploaded_file($_FILES['identity_image']['tmp_name'], $target)) {
+                    $identity_image = $target;
+                }
+            }
+        }
+        
+        $branch = mysqli_real_escape_string($conn, $_POST['branch'] ?? '');
+        $college = mysqli_real_escape_string($conn, $_POST['college'] ?? '');
+        
+        // تحديد قيمة الكلية المقروءة للعرض
+        if ($college == 'medical') $college_name = 'كلية العلوم الطبية والصحية';
+        elseif ($college == 'tech') $college_name = 'كلية العلوم التقنية والحاسوب';
+        elseif ($college == 'admin') $college_name = 'كلية العلوم الإدارية والمالية';
+        elseif ($college == 'engineering') $college_name = 'كلية العلوم الهندسية';
+        else $college_name = $college;
+
+        $student_id = date('Y') . rand(100, 999);
+        
+        $birth_date_val = !empty($birth_date) ? "'$birth_date'" : "NULL";
+        $identity_issue_val = !empty($identity_issue_date) ? "'$identity_issue_date'" : "NULL";
+
+        // التحقق من تكرار البريد الإلكتروني في قاعدة البيانات
+        $check_email = mysqli_query($conn, "SELECT id FROM users WHERE email = '$email'");
+        if (mysqli_num_rows($check_email) > 0) {
+            $enroll_message = '<div style="background:#f8d7da;color:#721c24;padding:15px;border-radius:8px;margin-bottom:20px;border-right:4px solid #dc3545;font-family:\'Cairo\',sans-serif;direction:rtl;text-align:right;">❌ خطأ 

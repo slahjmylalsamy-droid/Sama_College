@@ -1,0 +1,33 @@
+elseif (($page == 'announcements') && ($is_staff || $is_admin)):
+    $msg = "";
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_announcement'])) {
+        $title = mysqli_real_escape_string($conn, $_POST['title']);
+        $content = mysqli_real_escape_string($conn, $_POST['content']);
+        $created_by = $_SESSION['user_id'];
+        $query = "INSERT INTO announcements (title, content, created_by) VALUES ('$title', '$content', $created_by)";
+        if (mysqli_query($conn, $query)) $msg = '<div style="background:#d4edda;color:#155724;padding:15px;border-radius:8px;margin-bottom:20px;border-right:4px solid #28a745;">✅ تم إضافة الإعلان!</div>';
+    }
+    $announcements = mysqli_query($conn, "SELECT * FROM announcements ORDER BY created_at DESC");
+?>
+    <?php echo $msg; ?>
+    <div style="background:white;padding:25px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+        <h2 style="color:#0f3460;">📢 إضافة إعلان جديد</h2>
+        <form method="POST">
+            <div style="margin-bottom:15px;"><input type="text" name="title" placeholder="عنوان الإعلان" required style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;"></div>
+            <div style="margin-bottom:15px;"><textarea name="content" placeholder="محتوى الإعلان..." required rows="4" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;"></textarea></div>
+            <button type="submit" name="add_announcement" style="background:#0f3460;color:white;padding:12px 30px;border:none;border-radius:8px;cursor:pointer;">نشر الإعلان</button>
+        </form>
+    </div>
+    <div style="background:white;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+        <h2 style="color:#0f3460;">جميع الإعلانات</h2>
+        <?php if (mysqli_num_rows($announcements) > 0): while($row=mysqli_fetch_assoc($announcements)): ?>
+        <div style="border-right:4px solid #ffc107;padding:15px;background:#fafafa;border-radius:8px;margin-bottom:15px;">
+            <h3 style="margin:0;color:#0f3460;"><?php echo $row['title']; ?></h3>
+            <p style="color:#555;"><?php echo $row['content']; ?></p>
+            <p style="color:#999;font-size:12px;margin:5px 0 0;"><?php echo date('d/m/Y h:i A', strtotime($row['created_at'])); ?></p>
+        </div>
+        <?php endwhile; else: ?><p style="text-align:center;color:#999;padding:30px;">لا توجد إعلانات.</p><?php endif; ?>
+    </div>
+
+<?php
+// =================================

@@ -1,0 +1,22 @@
+      }
+    }
+});
+</script>
+<?php
+    endif;
+
+    // Generic check for custom database page content
+    $db_page_check = mysqli_query($conn, "SELECT page_content FROM site_pages WHERE page_key = '" . mysqli_real_escape_string($conn, $page) . "'");
+    $db_page = $db_page_check ? mysqli_fetch_assoc($db_page_check) : null;
+    
+    if ($db_page && !empty(trim($db_page['page_content']))):
+?>
+        <div style="background:white; padding:40px; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.05); direction:rtl; text-align:right; font-family:'Cairo', sans-serif; border-top: 5px solid #0f3460; margin-top:20px; margin-bottom: 20px;">
+            <h2 style="color:#0f3460; margin-bottom:20px; font-weight:bold;"><?php echo htmlspecialchars($page_titles[$page] ?? 'محتوى الصفحة'); ?></h2>
+            <div style="line-height:2; font-size:16px; color:#333; text-align:justify;"><?php echo $db_page['page_content']; ?></div>
+            <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
+                <a href="?p=home" style="display:inline-flex; align-items:center; gap:8px; background:#7d0f3f; color:white; padding:10px 25px; border-radius:8px; text-decoration:none; font-weight:bold; transition:all 0.3s;" onmouseover="this.style.background='#5a0a2c'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#7d0f3f'; this.style.transform='none';">🏠 العودة للصفحة الرئيسية</a>
+            </div>
+        </div>
+<?php
+    
